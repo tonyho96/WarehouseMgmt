@@ -9,9 +9,16 @@ namespace WarehouseMgmt.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        public bool IsLoaded = false;
         public MainViewModel()
         {
-            MessageBox.Show("Đã vào trong MainViewModel -> DataContext của mainwindow.xaml");
+
+            if (!IsLoaded)
+            {
+                IsLoaded = true;
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+            }
         }
     }
 }
