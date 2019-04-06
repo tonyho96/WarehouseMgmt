@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseMgmt"
         mc:Ignorable="d"
+        
+        xmlns:uc="clr-namespace:WarehouseMgmt.UserControlWM"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,9 +15,21 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Name="loginWindow"
         Title="Login" Height="300" Width="400">
     <Grid>
-        <materialDesign:Card Width="330" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
+        </Grid>
+        <materialDesign:Card Grid.Row="1" Width="330" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid>
                 <Grid.Resources>
                     <Style TargetType="Grid">
